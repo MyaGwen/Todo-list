@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check It</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <main class="list-app">
+        <!-- !Header -->
+        <h1 class="app-header">Check It</h1>
+
+        <!-- !greeting -->
+        <section class="greeting">
+			<h2 class="greeting-title">
+				What's up, <input type="text" id="name" placeholder="Your name" />
+			</h2>
+		</section>
+
+        <!-- !todo list items -->
+        <div class="input-header">
+            <h2><span id="date"></span></h2>
+            <div class="to-do-input">
+                <input type="text" id="item" placeholder="Add a new item..."><button id="enter">Enter</button>
+            </div>
+        </div>
+        <div class="to-do-list"></div>
+
+    </main>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
