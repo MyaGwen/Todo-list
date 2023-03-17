@@ -106,18 +106,3 @@ window.onload = function() {
   displayDate()
   displayItems()
 };
-// Footer
-// © 2023 GitHub, Inc.
-// Footer navigation
-// Terms
-// Privacy
-// Security
-// Status
-// Docs
-// Contact GitHub
-// Pricing
-// API
-// Training
-// Blog
-// About
-// To-do-list-local-storage/script.js at main · iamcodefoxx/To-do-list-local-storage
