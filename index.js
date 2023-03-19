@@ -8,6 +8,8 @@ if (username) {
   if (username) {
     localStorage.setItem('username', username);
     usernameElement.textContent = username;
+  } else {
+    usernameElement.textContent = 'Dear';
   }
 }
 
@@ -19,6 +21,7 @@ usernameElement.addEventListener('click', () => {
     username = newName;
   }
 });
+
 
 
 
