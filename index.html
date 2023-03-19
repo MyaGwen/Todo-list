@@ -8,32 +8,67 @@
     <title>Check It</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+
     <main class="list-app">
-        <!-- !Header -->
-        <h1 class="app-header">Check It</h1>
+        <section class="greeting">
+            <h2 class="greeting-title">
+                <span>Hello, </span> <span class="username">Your Name</span>
+            </h2>
+        </section>
+
 
         <!-- !greeting -->
-        <section class="greeting">
-			<h2 class="greeting-title">
-				What's up, <input type="text" id="name" placeholder="Your name" />
-			</h2>
-		</section>
+
 
         <!-- !todo list items -->
-        <div class="input-header">
-            <h2><span id="date"></span></h2>
-            <div class="to-do-input">
-                <input type="text" id="item" placeholder="Add a new item..."><button id="enter">Enter</button>
+        <section class="to-do-input">
+        <!-- !Header -->
+        <h1>Check It <img src="/images/check-mark-button.png" alt=""></h1>
+            <form class="input-form">
+                <p class="alert"></p>
+                <div class="form-control">
+                    <input type="text" id="item" placeholder="Add a new item..."><button type="submit"
+                        id="enter">Add</button>
+                </div>
+            </form>
+
+            <div class="list-container">
+                <div class="to-do-list">
+                    <!-- <article class="list-item">
+                         <p class="list-title"></p>
+                        <div class="list-btn-container">
+                            <button type="button" class="edit-btn">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="delete-btn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div> 
+                    </article> -->
+                </div>
+                <!-- ! clear list -->
+                <button type="reset" class="clear-btn">Clear-items</button>
             </div>
-        </div>
-        <div class="to-do-list"></div>
+        </section>
+
+
+        <!-- 
+section-center = to-do-input
+grocery-form = input-form
+grocery = item
+.submit-btn = #enter
+.grocery-container = list-container
+.grocery-list = to-do-list
+grocery-item = list-item
+btn-container = list-btn-container
+-->
 
     </main>
 

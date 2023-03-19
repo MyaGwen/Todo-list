@@ -1,108 +1,135 @@
-const itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+// // Select the HTML element(s) with the class name "username"
+// let userNameElements = document.getElementsByClassName("username");
 
-document.querySelector("#enter").addEventListener("click", () => {
-  const item = document.querySelector("#item")
-  createItem(item)
-})
+// // Prompt the user to enter their name and store the value in a variable
+// let userInput = prompt("Please enter your name:");
 
-document.querySelector("#item").addEventListener("keypress", (e) => {
-  if(e.key === "Enter"){
-    const item = document.querySelector("#item")
-    createItem(item)
-  }
-})
+// // Check if the user entered nothing or clicked "cancel"
+// if (!userInput) {
+//     // If so, display an alert message
+//     alert("It's okay if you don't want to tell me your name");
+//     // Set the value of the userInput variable to "Dear"
+//     userInput = "Dear";
+// }
 
-function displayDate(){
-  let date = new Date()
-  date = date.toString().split(" ")
-  date = date[1] + " " + date[2] + " " + date[3] 
-  document.querySelector("#date").innerHTML = date 
+// // Update the text content of the "username" element(s) with the user's name or "Dear"
+// for (const element of userNameElements) {
+//     element.textContent = ", " + userInput + "!";
+// }
+
+
+// section-center = to-do-input
+// grocery-form = input-form
+// grocery = item
+// .submit-btn = #enter
+// .grocery-container = list-container
+// .grocery-list = to-do-list
+// grocery-item = list-item
+// btn-container = list-btn-container
+
+
+//! SELECT ITEMS
+const alert = document.querySelector(".alert");
+const form = document.querySelector(".input-form");
+const item = document.getElementById("item");
+const submitBtn = document.getElementById("enter");
+const container = document.querySelector(".list-container");
+const list = document.querySelector(".to-do-list");
+const clearBtn = document.querySelector(".clear-btn");
+
+
+
+//! EDIT OPTION
+let editElement;
+let editFlag = false;
+let editID = "";
+
+//! EVENT LISTENERS
+//todo SUBMIT FORM
+form.addEventListener("submit", addItem);
+//todo SUBMIT FORM
+clearBtn.addEventListener("click", clearItems);
+
+//! FUNCTIONS
+function addItem(e) {
+    e.preventDefault();
+    const value = item.value;
+    const id = new Date().getTime.toString();
+
+    if (value && !editFlag) {
+        const element = document.createElement("article")
+        //! add class
+        element.classList.add("list-item");
+        //!add id
+        const attr = document.createAttribute("data-id")
+        attr.value = id;
+        element.setAttributeNode(attr);
+        element.innerHTML = `<p class="list-title">${value}</p>
+        <div class="list-btn-container">
+            <button type="button" class="edit-btn">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button type="button" class="delete-btn">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>`
+        //!append child
+        list.appendChild(element);
+        //! add display alert
+        displayAlert("item added", "success");
+        //!show container
+        container.classList.add("show-list-container")
+        //!add to local storage
+        addToLocalStorage(id, value);
+        //!set back to default
+        setBackToDefault();
+    } else if (value && editFlag) {
+        console.log("editing")
+    } else {
+        displayAlert("Enter an item", "danger")
+    }
 }
 
-function displayItems(){
-  let items = ""
-  for(let i = 0; i < itemsArray.length; i++){
-    items += `<div class="item">
-                <div class="input-controller">
-                  <textarea disabled>${itemsArray[i]}</textarea>
-                  <div class="edit-controller">
-                    <i class="fa-solid fa-check deleteBtn"></i>
-                    <i class="fa-solid fa-pen-to-square editBtn"></i>
-                  </div>
-                </div>
-                <div class="update-controller">
-                  <button class="saveBtn">Save</button>
-                  <button class="cancelBtn">Cancel</button>
-                </div>
-              </div>`
-  }
-  document.querySelector(".to-do-list").innerHTML = items
-  activateDeleteListeners()
-  activateEditListeners()
-  activateSaveListeners()
-  activateCancelListeners()
+//!display alert
+function displayAlert(text, action) {
+    alert.textContent = text;
+    alert.classList.add(`alert-${action}`);
+    //! remove alert
+    setTimeout(function () {
+        alert.textContent = "";
+        alert.classList.remove(`alert-${action}`);
+    }, 1000)
 }
-
-function activateDeleteListeners(){
-  let deleteBtn = document.querySelectorAll(".deleteBtn")
-  deleteBtn.forEach((dB, i) => {
-    dB.addEventListener("click", () => { deleteItem(i) })
-  })
-}
-
-function activateEditListeners(){
-  const editBtn = document.querySelectorAll(".editBtn")
-  const updateController = document.querySelectorAll(".update-controller")
-  const inputs = document.querySelectorAll(".input-controller textarea")
-  editBtn.forEach((eB, i) => {
-    eB.addEventListener("click", () => { 
-      updateController[i].style.display = "block"
-      inputs[i].disabled = false })
-  })
-}
-
-function activateSaveListeners(){
-  const saveBtn = document.querySelectorAll(".saveBtn")
-  const inputs = document.querySelectorAll(".input-controller textarea")
-  saveBtn.forEach((sB, i) => {
-    sB.addEventListener("click", () => {
-      updateItem(inputs[i].value, i)
+//! clear items
+function clearItems() {
+const items = document.querySelectorAll('.list-item');
+if(items.length > 0){
+    items.forEach(function(item){
+        list.removeChild(item);
     })
-  })
+}
+container.classList.remove("show-list-container")
+displayAlert("list is empty", "success")
+setBackToDefault();
+//!local storage
+localStorage.removeItem()
+}
+//!set back to default
+function setBackToDefault() {
+    item.value = "";
+    editFlag = false;
+    editID = ""
+    submitBtn.textContent = "Add";
 }
 
-function activateCancelListeners(){
-  const cancelBtn = document.querySelectorAll(".cancelBtn")
-  const updateController = document.querySelectorAll(".update-controller")
-  const inputs = document.querySelectorAll(".input-controller textarea")
-  cancelBtn.forEach((cB, i) => {
-    cB.addEventListener("click", () => {
-      updateController[i].style.display = "none"
-      inputs[i].disabled = true
-      inputs[i].style.border = "none"
-    })
-  })
+
+//! LOCAL STORAGE
+function addToLocalStorage(id, value) {
+    console.log("adding to local storage")
 }
 
-function createItem(item){
-  itemsArray.push(item.value)
-  localStorage.setItem('items', JSON.stringify(itemsArray))
-  location.reload()
-}
 
-function deleteItem(i){
-  itemsArray.splice(i,1)
-  localStorage.setItem('items', JSON.stringify(itemsArray))
-  location.reload()
-}
 
-function updateItem(text, i){
-  itemsArray[i] = text
-  localStorage.setItem('items', JSON.stringify(itemsArray))
-  location.reload()
-}
+//! SETUP ITEMS
 
-window.onload = function() {
-  displayDate()
-  displayItems()
-};
+
