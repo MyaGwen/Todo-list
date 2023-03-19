@@ -1,31 +1,25 @@
-// // Select the HTML element(s) with the class name "username"
-// let userNameElements = document.getElementsByClassName("username");
+const usernameElement = document.getElementById('username');
+let username = localStorage.getItem('username');
 
-// // Prompt the user to enter their name and store the value in a variable
-// let userInput = prompt("Please enter your name:");
+if (username) {
+  usernameElement.textContent = username;
+} else {
+  username = prompt('What is your name?');
+  if (username) {
+    localStorage.setItem('username', username);
+    usernameElement.textContent = username;
+  }
+}
 
-// // Check if the user entered nothing or clicked "cancel"
-// if (!userInput) {
-//     // If so, display an alert message
-//     alert("It's okay if you don't want to tell me your name");
-//     // Set the value of the userInput variable to "Dear"
-//     userInput = "Dear";
-// }
+usernameElement.addEventListener('click', () => {
+  const newName = prompt('Enter your new name:', username);
+  if (newName) {
+    localStorage.setItem('username', newName);
+    usernameElement.textContent = newName;
+    username = newName;
+  }
+});
 
-// // Update the text content of the "username" element(s) with the user's name or "Dear"
-// for (const element of userNameElements) {
-//     element.textContent = ", " + userInput + "!";
-// }
-
-
-// section-center = to-do-input
-// grocery-form = input-form
-// grocery = item
-// .submit-btn = #enter
-// .grocery-container = list-container
-// .grocery-list = to-do-list
-// grocery-item = list-item
-// btn-container = list-btn-container
 
 
 //! SELECT ITEMS

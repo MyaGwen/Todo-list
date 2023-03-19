@@ -16,7 +16,6 @@ body {
 }
 
 /* ! PAGE HEADER */
-
 h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -29,24 +28,13 @@ h1 img {
 }
 
 /* ! GREETING SECTION */
-
 .greeting-title {
-    display: flex;
-    /* white-space: nowrap; */
-    justify-content: space-between;
-    /* align-items: center; */
-    /* font-size: 2rem; */
+    margin: 20px auto;
 }
 
 #username {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: initial;
+  text-transform: capitalize;
     color: #243a52;
-    text-transform: capitalize;
-    margin: 0 auto;
 }
 
 /*! TO DO INPUT */
@@ -145,14 +133,9 @@ h1 img {
 
 .to-do-list {
     margin: 20px auto;
-    padding: 0.25rem 1rem;
+    padding: 0.25rem 0;
     border-radius: 5px;
     text-transform: capitalize;
-}
-
-.to-do-list:hover {
-    /* background-color: dodgerblue; */
-    transition: background 0.3s ease-in-out;
 }
 
 .list-item {
@@ -160,7 +143,7 @@ h1 img {
     align-items: center;
     justify-content: space-between;
     background-color: dodgerblue;
-    width: 100%;
+    width: auto;
     border-radius: 10px;
     margin: 20px auto;
     padding: 0 10px;
