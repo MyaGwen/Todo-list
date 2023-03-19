@@ -1,14 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
 
 body {
-    font-family: "Open Sans", sans-serif;;
+    font-family: 'Shadows Into Light Two', cursive;
     background-color: #ccc;
 }
 
 /* !GENERAL */
-h1, h2, h3 {
-font-family: "Roboto", sans-serif;
-}
 
 .list-app {
     display: flex;
@@ -41,9 +38,15 @@ h1 img {
     /* font-size: 2rem; */
 }
 
-.greeting-title .username {
-    opacity: 0.8;
+#username {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+    color: #243a52;
     text-transform: capitalize;
+    margin: 0 auto;
 }
 
 /*! TO DO INPUT */
@@ -114,7 +117,6 @@ font-family: cursive;
 #enter:hover {
     padding: 8px 16px;
     background-color: #a2d2ff;
-    ;
     transition: all 0.3s ease-in-out;
 }
 
@@ -144,9 +146,6 @@ font-family: cursive;
 
 .to-do-list {
     margin: 20px auto;
-    /* background-color: ; */
-    /* box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302),
-        0 4px 8px 3px rgba(60, 64, 67, 0.149); */
     padding: 0.25rem 1rem;
     border-radius: 5px;
     text-transform: capitalize;
@@ -161,7 +160,7 @@ font-family: cursive;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #a2d2ff;
+    background-color: dodgerblue;
     width: 100%;
     border-radius: 10px;
     margin: 20px auto;
@@ -169,11 +168,13 @@ font-family: cursive;
 }
 
 .list-item:hover {
-    background: dodgerblue;
+    background: #a2d2ff;
+    padding: 0 20px;
+    transition: all 0.2s ease-in-out;
 }
 
 .list-title {
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
     color: hsl(209, 61%, 16%);
 }
 
@@ -201,36 +202,33 @@ font-family: cursive;
     color: hsl(360, 71%, 36%);
 }
 
-.edit-btn:hover,
+/* .edit-btn:hover,
 .delete-btn:hover {
     padding: 2px;
     transition: padding 0.1s linear;
-}
+} */
 
 /* ! MEDIA QUERIES */
 @media only screen and (max-width: 768px) {
-    body {
+    /* body {
         padding: 3%;
-    }
+    } */
 
     h1 {
         font-size: 2rem;
     }
 
     h1 img {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
     }
 
     .greeting-title {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+        letter-spacing: 2px;
     }
 
-    .input-header {
+    /* .input-header {
         flex-direction: column;
-    }
-
-    .to-do-list {
-        width: 80%;
-    }
+    } */
 }
