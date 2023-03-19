@@ -9,7 +9,8 @@ if (username) {
     localStorage.setItem('username', username);
     usernameElement.textContent = username;
   } else {
-    usernameElement.textContent = 'Dear';
+    usernameElement.textContent = "Dear";
+    alert("It's okay if you don't want to tell me your name");
   }
 }
 
@@ -21,6 +22,7 @@ usernameElement.addEventListener('click', () => {
     username = newName;
   }
 });
+
 
 
 
