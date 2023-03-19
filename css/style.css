@@ -210,7 +210,7 @@ h1 img {
         letter-spacing: 2px;
     }
 
-    /* .input-header {
-        flex-direction: column;
-    } */
+    .to-do-input {
+        width: 80%;
+    }
 }
