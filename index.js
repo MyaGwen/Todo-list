@@ -105,7 +105,7 @@ function deleteItem(e) {
     if (list.children.length === 0) {
         container.classList.remove("show-list-container")
     }
-    displayAlert("Item removed", "danger")
+    displayAlert("Item completed", "success")
     setBackToDefault();
     //!remove from localstorage
     removeFromLocalStorage(id);
