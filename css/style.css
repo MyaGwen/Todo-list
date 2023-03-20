@@ -147,6 +147,7 @@ h1 img {
     border-radius: 10px;
     margin: 20px auto;
     padding: 0 10px;
+    
 }
 
 .list-item:hover {
@@ -157,8 +158,9 @@ h1 img {
 
 .list-title {
     letter-spacing: 0.5px;
-    color: hsl(209, 61%, 16%);
+    color: #fff;
 }
+
 
 .edit-btn,
 .delete-btn {
