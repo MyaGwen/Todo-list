@@ -203,7 +203,7 @@ function createListItem(id, value) {
             <i class="fas fa-edit"></i>
         </button>
         <button type="button" class="delete-btn">
-            <i class="fas fa-trash"></i>
+        <i class="fa-regular fa-square-check"></i>
         </button>
     </div>`;
     //!add evenlisteners to both buttons
